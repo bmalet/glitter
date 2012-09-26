@@ -137,7 +137,8 @@ module Glitter
     end
 
     def object_name
-      "#{name.gsub(/\s/,'-').downcase}#{File.extname(file.path)}"
+      extension = (file.path =~ /[^[\/]|^[\.]]+\.([\.|\w]+)$/; $1)
+      "#{name.gsub(/\s/,'-').downcase}#{extension}"
     end
 
     def object
